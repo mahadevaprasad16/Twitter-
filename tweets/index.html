@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<title>Get Twitter Data</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<script type='text/javascript' src='js/jquery-1.9.0.min.js' ></script>
+<script type='text/javascript' src='js/bootstrap.js' ></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style type='text/css'>
+	#facebookDiv{
+		width: 500px;
+		height: 500px;
+		border: 1px solid red;
+	}
+</style>
+</html>
+
+<body>
+	<div id='twitterDiv'>
+	</div>
+</body>
+<script type='text/javascript'>
+	$.ajax({
+		url: 'tweets_json.php?count=5&callback=listTweets&screen_name=vinod&twitter_path=',
+		success:function(data){
+			//var data = data.listTweets.created_at;
+			//listTweets(data);
+			alert(data);
+			document.getElementById('twitterDiv').innerHTML = data;
+		}
+	});
+	
+	
+	/*function listTweets(data){
+		document.getElementById('twitterDiv').innerHTML = data;
+	}*/
+</script>
+</html>
